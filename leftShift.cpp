@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 
-// count of an element in an array 
+// left-shift by 1
 int main(){
-    int n, x;
+    int n;
     cout << "Enter the size of the array: ";
     cin >> n;
 
@@ -13,17 +13,18 @@ int main(){
         cin >> arr[i];
     }
 
-    cout << "Enter the element to count: ";
-    cin >> x;
-
-    int count = 0;
-    for(int i = 0; i < n; i++){
-        if(arr[i] == x){
-            count++;
-        }
+    // left shift by 1
+    int firstElement = arr[0];
+    for(int i = 1; i < n; i++){
+        arr[i - 1] = arr[i];
     }
+    arr[n - 1] = firstElement;
 
-    cout << "Count of " << x << ": " << count << endl;
+    cout << "Array after left shift: ";
+    for(int i = 0; i < n; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
 
     return 0;
 }

@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 
-// count of an element in an array 
+// duplicate values in an array
 int main(){
-    int n, x;
+    int n;
     cout << "Enter the size of the array: ";
     cin >> n;
 
@@ -13,17 +13,16 @@ int main(){
         cin >> arr[i];
     }
 
-    cout << "Enter the element to count: ";
-    cin >> x;
-
-    int count = 0;
+    cout << "Duplicate values in the array: ";
     for(int i = 0; i < n; i++){
-        if(arr[i] == x){
-            count++;
+        for(int j = i + 1; j < n; j++){
+            if(arr[i] == arr[j]){
+                cout << arr[i] << " ";
+                break;
+            }
         }
     }
-
-    cout << "Count of " << x << ": " << count << endl;
+    cout << endl;
 
     return 0;
 }

@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 
-// count of an element in an array 
+// count of odd/even element in an array
 int main(){
-    int n, x;
+    int n;
     cout << "Enter the size of the array: ";
     cin >> n;
 
@@ -13,17 +13,18 @@ int main(){
         cin >> arr[i];
     }
 
-    cout << "Enter the element to count: ";
-    cin >> x;
+    int oddCount = 0, evenCount = 0;
 
-    int count = 0;
     for(int i = 0; i < n; i++){
-        if(arr[i] == x){
-            count++;
+        if(arr[i] % 2 == 0){
+            evenCount++;
+        } else {
+            oddCount++;
         }
     }
 
-    cout << "Count of " << x << ": " << count << endl;
+    cout << "Count of even elements: " << evenCount << endl;
+    cout << "Count of odd elements: " << oddCount << endl;
 
     return 0;
 }
