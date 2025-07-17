@@ -58,14 +58,48 @@ int main()
     cout << largest << endl;
 
     cout << "The second largest element in array is : " << endl;
-    int secondLargest = arr[0];
-    for (int i = 0; i < n; i++) {
-        if (arr[i] > secondLargest && arr[i] < largest)
+    int nn = sizeof(arr) / sizeof(arr[0]);
+    int l_largest = 0;
+    int secondLargest = 0;
+    for (int i = 0; i < nn; i++)
+    {
+        if (arr[i] > l_largest)
+        {
+            secondLargest = l_largest;
+            l_largest = arr[i];
+        }
+        else if (arr[i] > secondLargest && arr[i] != l_largest)
         {
             secondLargest = arr[i];
         }
     }
     cout << secondLargest << endl;
 
+    cout << "The reversed array is : " << endl;
+    for (int i = n - 1; i >= 0; i--)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    cout << "Checking if the array is sorted or not.. ";
+    bool isSorted = true;
+    for (int i = 0; i < n - 1; i++)
+    {
+        if (arr[i] > arr[i + 1])
+        {
+            isSorted = false;
+            break;
+        }
+    }
+    if (isSorted)
+    {
+        cout << "the array is sorted." << endl;
+    }
+    else
+    {
+        cout << "the array is not sorted." << endl;
+    }
+
     return 0;
-}
+}                     
